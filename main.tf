@@ -16,4 +16,7 @@ module "web_app" {
   mail_encryption   = var.mail_encryption
   mail_from_address = var.mail_from_address
   admin_email       = var.admin_email
+
+  database_az_enabled = var.database_az_enabled
+  database_az         = var.database_az
 }
