@@ -1,7 +1,7 @@
 variable "docker_tag" {
   description = "Docker image tag"
   type        = string
-  default     = "edge"
+  default     = "1.4.9"
 }
 
 variable "project_slug" {
@@ -77,4 +77,16 @@ variable "mail_from_address" {
 variable "admin_email" {
   description = "Email address of initial admin account"
   type        = string
+}
+
+variable "database_az_enabled" {
+  description = "Specifies if there's a preference for the Availability Zone in which the PostgreSQL Flexible Server should be located"
+  type        = bool
+  default     = true
+}
+
+variable "database_az" {
+  description = "Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located"
+  type        = string
+  default     = "2"
 }
