@@ -1,26 +1,26 @@
 moved {
-  from = module.web_app.azurerm_app_service_certificate_binding.root_certificate_binding["0"]
-  to = azurerm_app_service_certificate_binding.root_certificate_binding["0"]
+  from = module.web_app.azurerm_app_service_certificate_binding.root_certificate_binding[0]
+  to = azurerm_app_service_certificate_binding.root_certificate_binding[0]
 }
 moved {
-  from = module.web_app.azurerm_app_service_certificate_binding.www_certificate_binding["0"]
-  to = azurerm_app_service_certificate_binding.www_certificate_binding["0"]
+  from = module.web_app.azurerm_app_service_certificate_binding.www_certificate_binding[0]
+  to = azurerm_app_service_certificate_binding.www_certificate_binding[0]
 }
 moved {
-  from = module.web_app.azurerm_app_service_custom_hostname_binding.root_hostname_binding["0"]
-  to = azurerm_app_service_custom_hostname_binding.root_hostname_binding["0"]
+  from = module.web_app.azurerm_app_service_custom_hostname_binding.root_hostname_binding[0]
+  to = azurerm_app_service_custom_hostname_binding.root_hostname_binding[0]
 }
 moved {
-  from = module.web_app.azurerm_app_service_custom_hostname_binding.www_hostname_binding["0"]
-  to = azurerm_app_service_custom_hostname_binding.www_hostname_binding["0"]
+  from = module.web_app.azurerm_app_service_custom_hostname_binding.www_hostname_binding[0]
+  to = azurerm_app_service_custom_hostname_binding.www_hostname_binding[0]
 }
 moved {
-  from = module.web_app.azurerm_app_service_managed_certificate.root_managed_certificate["0"]
-  to = azurerm_app_service_managed_certificate.root_managed_certificate["0"]
+  from = module.web_app.azurerm_app_service_managed_certificate.root_managed_certificate[0]
+  to = azurerm_app_service_managed_certificate.root_managed_certificate[0]
 }
 moved {
-  from = module.web_app.azurerm_app_service_managed_certificate.www_managed_certificate["0"]
-  to = azurerm_app_service_managed_certificate.www_managed_certificate["0"]
+  from = module.web_app.azurerm_app_service_managed_certificate.www_managed_certificate[0]
+  to = azurerm_app_service_managed_certificate.www_managed_certificate[0]
 }
 moved {
   from = module.web_app.azurerm_linux_web_app.app_service
