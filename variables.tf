@@ -1,7 +1,7 @@
 variable "docker_tag" {
   description = "Docker image tag"
   type        = string
-  default     = "1.9.3"
+  default     = "1.11.5"
 }
 
 variable "project_slug" {
@@ -89,4 +89,16 @@ variable "database_az" {
   description = "Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located"
   type        = string
   default     = "2"
+}
+
+variable "sentry_dsn" {
+  description = "Sentry DSN"
+  type        = string
+  default     = null
+}
+
+variable "sentry_environment" {
+  description = "Sentry environment"
+  type        = string
+  default     = null
 }
