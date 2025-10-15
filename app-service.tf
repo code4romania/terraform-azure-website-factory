@@ -60,6 +60,8 @@ resource "azurerm_linux_web_app" "app_service" {
     "AZURE_STORAGE_CONTAINER" = azurerm_storage_container.storage_container.name
     "ADMIN_EMAIL"             = var.admin_email
     "ADMIN_PASSWORD"          = random_password.admin_password.result
+    "SENTRY_DSN"              = var.sentry_dsn
+    "SENTRY_ENVIRONMENT"      = coalesce(var.sentry_environment, var.project_slug)
   }
 
   connection_string {
