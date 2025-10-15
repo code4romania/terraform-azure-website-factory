@@ -28,7 +28,7 @@ locals {
   db_config = {
     name              = local.namespace
     sku               = "B_Standard_B1ms"
-    version           = "13"
+    version           = "17"
     admin_db_user     = "psqladmin"
     admin_db_password = random_password.db_pass.result
 
