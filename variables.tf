@@ -90,3 +90,15 @@ variable "database_az" {
   type        = string
   default     = "2"
 }
+
+variable "sentry_dsn" {
+  description = "Sentry DSN"
+  type        = string
+  default     = null
+}
+
+variable "sentry_environment" {
+  description = "Sentry environment"
+  type        = string
+  default     = null
+}
