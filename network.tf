@@ -17,6 +17,7 @@ resource "azurerm_subnet" "subnet" {
   virtual_network_name = azurerm_virtual_network.vn_network.name
   address_prefixes     = local.network.subnet_address_prefixes
   service_endpoints    = ["Microsoft.Storage"]
+
   delegation {
     name = "fs"
     service_delegation {

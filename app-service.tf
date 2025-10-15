@@ -25,12 +25,13 @@ resource "azurerm_linux_web_app" "app_service" {
 
   site_config {
     application_stack {
-      docker_image     = local.app_service.docker_image
-      docker_image_tag = var.docker_tag
+      docker_image_name = "${local.app_service.docker_image}:${var.docker_tag}"
     }
 
-    health_check_path = "/health"
-    http2_enabled     = true
+    health_check_path                 = "/health"
+    health_check_eviction_time_in_min = 2
+
+    http2_enabled = true
   }
 
   app_settings = {
