@@ -25,7 +25,8 @@ resource "azurerm_linux_web_app" "app_service" {
 
   site_config {
     application_stack {
-      docker_image_name = "${local.app_service.docker_image}:${var.docker_tag}"
+      docker_image_name   = "${local.app_service.docker_image}:${var.docker_tag}"
+      docker_registry_url = "https://index.docker.io"
     }
 
     health_check_path                 = "/health"
