@@ -41,7 +41,7 @@ locals {
 
   mail = {
     mailer = var.enable_acs ? "azure" : "smtp"
-    from   = var.enable_acs ? "${azurerm_email_communication_service_domain_sender_username.email[0].name}@${azurerm_communication_service.comms[0].hostname}" : var.mail_from_address
+    from   = var.enable_acs ? "${azurerm_email_communication_service_domain_sender_username.email[0].name}@${azurerm_email_communication_service_domain.email[0].from_sender_domain}" : var.mail_from_address
 
     smtp = {
       host       = var.enable_acs ? null : var.mail_host
