@@ -52,7 +52,7 @@ locals {
     }
 
     azure = {
-      resource_name = var.enable_acs ? azurerm_email_communication_service.email[0].name : null
+      resource_name = var.enable_acs ? azurerm_communication_service.comms[0].name : null
       key           = var.enable_acs ? azurerm_communication_service.comms[0].primary_key : null
     }
   }
