@@ -48,8 +48,8 @@ resource "azurerm_linux_web_app" "app_service" {
     "DB_USERNAME"             = local.db_config.admin_db_user
     "DB_PASSWORD"             = local.db_config.admin_db_password
     "MAIL_MAILER"             = "smtp"
-    "MAIL_HOST"               = var.mail_host
-    "MAIL_PORT"               = var.mail_port
+    "MAIL_HOST"               = local.mail.host
+    "MAIL_PORT"               = local.mail.port
     "MAIL_USERNAME"           = var.mail_username
     "MAIL_PASSWORD"           = var.mail_password
     "MAIL_ENCRYPTION"         = var.mail_encryption

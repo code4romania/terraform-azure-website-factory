@@ -38,4 +38,9 @@ locals {
     public_network_access_enabled = true
     zone                          = var.database_az_enabled ? var.database_az : null
   }
+
+  mail = {
+    host = var.enable_acs ? "smtp.azurecomm.net" : var.mail_host
+    port = var.enable_acs ? 587 : var.mail_port
+  }
 }
