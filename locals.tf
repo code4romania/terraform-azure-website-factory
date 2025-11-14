@@ -40,7 +40,11 @@ locals {
   }
 
   mail = {
-    host = var.enable_acs ? "smtp.azurecomm.net" : var.mail_host
-    port = var.enable_acs ? 587 : var.mail_port
+    host       = var.enable_acs ? "smtp.azurecomm.net" : var.mail_host
+    port       = var.enable_acs ? 587 : var.mail_port
+    username   = var.enable_acs ? "" : var.mail_username
+    password   = var.enable_acs ? "" : var.mail_password
+    from       = var.enable_acs ? azurerm_email_communication_service_domain_sender_username.email[0].name : var.mail_from_address
+    encryption = var.mail_encryption
   }
 }

@@ -50,10 +50,10 @@ resource "azurerm_linux_web_app" "app_service" {
     "MAIL_MAILER"             = "smtp"
     "MAIL_HOST"               = local.mail.host
     "MAIL_PORT"               = local.mail.port
-    "MAIL_USERNAME"           = var.mail_username
-    "MAIL_PASSWORD"           = var.mail_password
-    "MAIL_ENCRYPTION"         = var.mail_encryption
-    "MAIL_FROM_ADDRESS"       = var.mail_from_address
+    "MAIL_USERNAME"           = local.mail.username
+    "MAIL_PASSWORD"           = local.mail.password
+    "MAIL_ENCRYPTION"         = local.mail.encryption
+    "MAIL_FROM_ADDRESS"       = local.mail.from
     "FILESYSTEM_DRIVER"       = "azure"
     "FILESYSTEM_CLOUD"        = "azure"
     "AZURE_STORAGE_NAME"      = azurerm_storage_account.storage_account.name
