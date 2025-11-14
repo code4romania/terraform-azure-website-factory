@@ -39,6 +39,12 @@ variable "region" {
   default     = "North Europe"
 }
 
+variable "acs_data_location" {
+  description = "Azure Communication Service data location"
+  type        = string
+  default     = "Europe"
+}
+
 variable "mail_host" {
   description = "SMTP host"
   type        = string
