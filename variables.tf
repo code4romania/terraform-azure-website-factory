@@ -39,6 +39,18 @@ variable "region" {
   default     = "North Europe"
 }
 
+variable "enable_acs" {
+  description = "Enable Azure Communication Service for email sending"
+  type        = bool
+  default     = false
+}
+
+variable "acs_data_location" {
+  description = "Azure Communication Service data location"
+  type        = string
+  default     = "Europe"
+}
+
 variable "mail_host" {
   description = "SMTP host"
   type        = string
