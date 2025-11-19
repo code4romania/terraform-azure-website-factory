@@ -47,13 +47,6 @@ resource "azurerm_linux_web_app" "app_service" {
     "DB_DATABASE"             = azurerm_postgresql_flexible_server_database.db.name
     "DB_USERNAME"             = local.db_config.admin_db_user
     "DB_PASSWORD"             = local.db_config.admin_db_password
-    "MAIL_MAILER"             = "smtp"
-    "MAIL_HOST"               = var.mail_host
-    "MAIL_PORT"               = var.mail_port
-    "MAIL_USERNAME"           = var.mail_username
-    "MAIL_PASSWORD"           = var.mail_password
-    "MAIL_ENCRYPTION"         = var.mail_encryption
-    "MAIL_FROM_ADDRESS"       = var.mail_from_address
     "FILESYSTEM_DRIVER"       = "azure"
     "FILESYSTEM_CLOUD"        = "azure"
     "AZURE_STORAGE_NAME"      = azurerm_storage_account.storage_account.name
@@ -63,6 +56,19 @@ resource "azurerm_linux_web_app" "app_service" {
     "ADMIN_PASSWORD"          = random_password.admin_password.result
     "SENTRY_DSN"              = var.sentry_dsn
     "SENTRY_ENVIRONMENT"      = coalesce(var.sentry_environment, var.project_slug)
+
+    "MAIL_MAILER"       = local.mail.mailer
+    "MAIL_FROM_ADDRESS" = local.mail.from
+    # SMTP
+    "MAIL_HOST"       = local.mail.smtp.host
+    "MAIL_PORT"       = local.mail.smtp.port
+    "MAIL_USERNAME"   = local.mail.smtp.username
+    "MAIL_PASSWORD"   = local.mail.smtp.password
+    "MAIL_ENCRYPTION" = local.mail.smtp.encryption
+
+    # Azure Communication Services
+    "AZURE_MAIL_RESOURCE_NAME" = local.mail.azure.resource_name
+    "AZURE_MAIL_KEY"           = local.mail.azure.key
   }
 
   connection_string {
