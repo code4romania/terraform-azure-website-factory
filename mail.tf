@@ -1,3 +1,8 @@
+resource "azurerm_resource_provider_registration" "comms" {
+  count = var.enable_acs ? 1 : 0
+  name  = "Microsoft.Communication"
+}
+
 resource "azurerm_communication_service" "comms" {
   count               = var.enable_acs ? 1 : 0
   name                = "acs-${local.namespace}"
