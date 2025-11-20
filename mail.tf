@@ -8,6 +8,10 @@ resource "azurerm_communication_service" "comms" {
   name                = "acs-${local.namespace}"
   resource_group_name = azurerm_resource_group.resource_group.name
   data_location       = var.acs_data_location
+
+  depends_on = [
+    azurerm_resource_provider_registration.comms
+  ]
 }
 
 resource "azurerm_email_communication_service" "email" {
@@ -15,6 +19,10 @@ resource "azurerm_email_communication_service" "email" {
   name                = "acs-email-${local.namespace}"
   resource_group_name = azurerm_resource_group.resource_group.name
   data_location       = var.acs_data_location
+
+  depends_on = [
+    azurerm_resource_provider_registration.comms
+  ]
 }
 
 resource "azurerm_email_communication_service_domain" "email" {
