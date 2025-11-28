@@ -1,8 +1,17 @@
+resource "azurerm_resource_provider_registration" "comms" {
+  count = var.enable_acs ? 1 : 0
+  name  = "Microsoft.Communication"
+}
+
 resource "azurerm_communication_service" "comms" {
   count               = var.enable_acs ? 1 : 0
   name                = "acs-${local.namespace}"
   resource_group_name = azurerm_resource_group.resource_group.name
   data_location       = var.acs_data_location
+
+  depends_on = [
+    azurerm_resource_provider_registration.comms
+  ]
 }
 
 resource "azurerm_email_communication_service" "email" {
@@ -10,6 +19,10 @@ resource "azurerm_email_communication_service" "email" {
   name                = "acs-email-${local.namespace}"
   resource_group_name = azurerm_resource_group.resource_group.name
   data_location       = var.acs_data_location
+
+  depends_on = [
+    azurerm_resource_provider_registration.comms
+  ]
 }
 
 resource "azurerm_email_communication_service_domain" "email" {
